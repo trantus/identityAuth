@@ -9,7 +9,7 @@ import { RootState } from '../interfaces'
 function* loadData(): SagaIterator {
   try {
     const token = yield select((state: RootState) => state.session.accessToken)
-    console.log('token', token)
+
     const res = yield call(callApi, 'https://demo.identityserver.io/api/test', token)
 
     if (res.status === 200) {

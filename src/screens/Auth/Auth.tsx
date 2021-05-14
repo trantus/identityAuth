@@ -1,6 +1,7 @@
-import React, { Dispatch } from 'react'
+import React, { Dispatch, useEffect } from 'react'
 import { Pressable, StyleSheet, Text } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import SplashScreen from 'react-native-splash-screen'
 import { connect } from 'react-redux'
 import { Action } from 'redux'
 import { auth } from '../../actions/actionCreators/sessionActions'
@@ -15,6 +16,10 @@ const AuthScreen = (props: Props) => {
   const onButtonPress = () => {
     props.authStart()
   }
+
+  useEffect(() => {
+    SplashScreen.hide()
+  }, [])
 
   return (
     <SafeAreaView style={styles.container}>
