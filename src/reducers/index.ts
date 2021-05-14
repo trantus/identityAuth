@@ -1,16 +1,18 @@
-import {createStore, applyMiddleware, combineReducers} from 'redux';
-import userReducer from './session';
-import logger from 'redux-logger';
-import createSagaMiddleware from 'redux-saga';
+import { createStore, applyMiddleware, combineReducers } from 'redux'
+import userReducer from './session'
+import dataReducer from './data'
+import logger from 'redux-logger'
+import createSagaMiddleware from 'redux-saga'
 
-export const sagaMiddleware = createSagaMiddleware();
+export const sagaMiddleware = createSagaMiddleware()
 
 const reducer = combineReducers({
   session: userReducer,
-});
+  listOfData: dataReducer,
+})
 
-const middlewares = [logger, sagaMiddleware];
+const middlewares = [logger, sagaMiddleware]
 
 export const configureStore = () => {
-  return createStore(reducer, applyMiddleware(...middlewares));
-};
+  return createStore(reducer, applyMiddleware(...middlewares))
+}

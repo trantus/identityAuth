@@ -1,6 +1,9 @@
+import { DataReducer } from '../initialData'
+import { SessionReducer } from '../initialSession'
+
+export * from './data'
+
 export interface RootState {
-  session: {
-    accessToken: string | null
-    refreshToken: string | null
-  }
+  session: SessionReducer
+  listOfData: DataReducer
 }
