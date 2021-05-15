@@ -11,7 +11,7 @@ export const getData = (): GetData => ({
 
 export interface GetDataSuccess {
   type: TypeKeys.DATA_SUCCESS
-  data: any
+  data: DataItem[]
 }
 
 export const dataSuccess = (data: DataItem[]): GetDataSuccess => ({
